@@ -1,0 +1,23 @@
+#header {
+	
+}
+
+#body input {
+	height: 50%;
+	
+}
+
+#footer {
+	
+}
+
+html {
+	text-align: center;
+}
+
+body {
+	font-family: 'Arial', sans-serif;
+	font-size: 10pt;
+	margin: 0;
+	padding: 0;
+}
