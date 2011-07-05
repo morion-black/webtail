@@ -1,0 +1,10 @@
+Connect:
+    server: localhost
+    port: 4567
+    hostname: web20
+    
+Logs:
+    files: [ '/var/log/system.log',
+             '/var/log/secure.log']
+    folders: 
+    exclude: 
