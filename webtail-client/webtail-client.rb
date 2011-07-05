@@ -5,9 +5,10 @@ require "yaml"
 require "rubygems"
 require "file/tail"
 
+Config = YAML.load_file 'config.yml'
+
 def sendLog(data)
-    config = YAML.load_file 'config.yml'
-    uri = (URI.parse("http://#{config['Connect']['server']}:#{config['Connect']['port']}/logs/#{config['Connect']['hostname']}"))
+    uri = (URI.parse("http://#{Config['Connect']['server']}:#{Config['Connect']['port']}/logs/#{Config['Connect']['hostname']}"))
     
     puts "Sending PUT #{uri.request_uri} to #{uri.host}:#{uri.port}"
     Net::HTTP.start(uri.host, uri.port) do |http|
@@ -18,9 +19,9 @@ headers)
     end
 end
 
-config = YAML.load_file 'config.yml'
+
 threads = []
-config['Logs']['files'].each { |file|
+Config['Logs']['files'].each { |file|
     threads << Thread.new(file) do
         File::Tail::Logfile.open(file, :backward => 10) do |log|
             log.tail { |line|
