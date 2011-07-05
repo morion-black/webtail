@@ -18,6 +18,8 @@ def sendLog(data)
     
     puts "Sending PUT #{uri.request_uri} to #{uri.host}:#{uri.port}"
     Net::HTTP.start(uri.host, uri.port) do |http|
+        req = Net::HTTP::Post.new(uri.path)
+        req.basic_auth 'jack', 'pass'
         headers = {'Content-Type' => 'text/plain; charset=utf-8'}
         response = http.send_request('PUT', uri.request_uri, data, headers)
     puts "Response #{response.code} #{response.message}: #{response.body}"
