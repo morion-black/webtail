@@ -3,6 +3,8 @@
   require "sinatra"
   require "haml"
 
+  set :port, 4568
+
   get '/' do
       erb :index
   end
