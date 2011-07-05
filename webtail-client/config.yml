@@ -6,5 +6,5 @@ Connect:
 Logs:
     files: [ '/var/log/system.log',
              '/var/log/secure.log']
-    folders: 
-    exclude: 
+    folders: #not working yet
+    exclude: #not working yet
